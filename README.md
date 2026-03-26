@@ -47,3 +47,9 @@
    sudo systemctl start octoprint
    ```
 5. Check status: `sudo systemctl status octoprint`.
+6. To allow OctoPrint to reboot and shutdown the hardware, create a sudoer file `sudoedit /etc/sudoers.d/octoprint-shutdown` with the following content:
+   ```
+   kwng ALL=NOPASSWD: /usr/bin/systemctl restart octoprint
+   kwng ALL=NOPASSWD: /usr/bin/systemctl reboot
+   kwng ALL=NOPASSWD: /usr/bin/systemctl poweroff
+   ```
